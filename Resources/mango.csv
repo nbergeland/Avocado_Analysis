@@ -1,0 +1,18 @@
+"Data generated on Wednesday, February 19, 2020 at 6:38:16 PM EST"
+Area/Partners of Origin,,,,,January 2014 - December 2019
+And General Commodities Imported,,,,,Quantities/Values in Thousands of Dollars
+,,,,,,Q1(Jan-Mar),Q1(Jan-Mar),Q2(Apr-Jun),Q2(Apr-Jun),Q3(Jul-Sep),Q3(Jul-Sep),Q4(Oct-Dec),Q4(Oct-Dec),Total,Total,,,
+,Partner,,Product,Year,UOM,Value,Qty,Value,Qty,Value,Qty,Value,Qty,Value,Qty,Period/Period %  Change (Value),Period/Period %  Change (Qty),Reporter Code,Partner Code,Product Code,
+"1","Mexico","1","Fresh Fruit Other","2014-2014","MT","892,426","464,327.1","761,529","505,477.0","440,088","348,003.2","739,714","385,540.0","2,833,757","1,703,347.3","68","11","US","MX","0710AT",
+"1","Mexico","1","Fresh Fruit Other","2015-2015","MT","1,046,512","527,981.1","903,974","575,985.6","536,917","447,233.5","891,793","489,631.9","3,379,197","2,040,832.2","66","9","US","MX","0710AT",
+"1","Mexico","1","Fresh Fruit Other","2016-2016","MT","1,149,175","583,105.6","945,462","598,278.4","743,904","470,007.6","1,045,950","452,733.6","3,884,492","2,104,125.1","41","-4","US","MX","0710AT",
+"1","Mexico","1","Fresh Fruit Other","2017-2017","MT","1,515,573","639,484.0","1,244,306","650,097.8","900,558","487,337.9","1,161,936","481,692.0","4,822,373","2,258,611.7","29","-1","US","MX","0710AT",
+"1","Mexico","1","Fresh Fruit Other","2018-2018","MT","1,595,459","675,285.1","1,249,142","692,553.2","751,886","519,123.4","1,156,596","530,443.1","4,753,083","2,417,404.8","54","2","US","MX","0710AT",
+"1","Mexico","1","Fresh Fruit Other","2019-2019","MT","1,832,612","740,220.3","1,547,701","686,921.6","894,376","544,320.1","1,358,452","556,313.5","5,633,142","2,527,775.4","52","2","US","MX","0710AT",
+"Notes:<br>
+1. Data Source: U.S. Census Bureau Trade Data<br>
+2. FAS Totals include all Agricultural commodities and FAS selected NONAG commodity items.<br>
+3. All zeroes for a data item may show that statistics exist in the other import type. Consumption or General.<br>
+4. Users should use cautious interpretation on QUANTITY reports using mixed units of measure. QUANTITY line items will only include statistics on the units of measure that are equal to, or are able to be converted to, the assigned unit of measure of the grouped
+ commodities."
+"5. Product Group : FAS"
