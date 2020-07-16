@@ -5,7 +5,7 @@
 1. Did increasing avocado prices cause avocado imports to increase and imports of other crops produced in Michoacan to decrease (Kaggle and USDA)?
 2. As prices went up how did domestic and import amount change (USDA)?
 3. Does the time of year affect the price of avocados?
-4. Does the pric of avocados affect the stock price of Chipotle?
+4. Does the price of avocados affect the stock price of Chipotle?
 
 ## Data sources
 
