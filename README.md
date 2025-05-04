@@ -2,7 +2,7 @@
 ## Overview
 This document provides a comprehensive overview of the Avocado Analysis system, a data processing and visualization framework for agricultural trade data. The system primarily focuses on analyzing import/export patterns for avocados, with additional support for related fruits such as mangoes and limes. It implements an Extract-Transform-Load (ETL) pipeline that processes CSV data from agricultural trade sources, transforms it into a standardized format, stores it in a PostgreSQL database, and generates visualizations to display price and quantity trends.
 
-## System Architecture
+### System Architecture
 
 System Components and Data Flow
 
@@ -16,24 +16,24 @@ mango_df.ipynb
 lime.ipynb
 1-20
 
-## Core ETL Process
+### Core ETL Process
 
 The system implements a standardized ETL pattern across all fruit types. The central function fas_csv_to_pd_df() transforms quarterly-formatted CSV data into a structured time series format suitable for analysis and visualization.
 
-## Data Transformation Flow
+### Data Transformation Flow
 
-## Key Questions
+### Key Questions
 
 1. Did increasing avocado prices cause avocado imports to increase and imports of other crops produced in Michoacan to decrease (Kaggle and USDA)?
 2. As prices went up how did domestic and import amount change (USDA)?
 3. Does the time of year affect the price of avocados?
 4. Does the price of avocados affect the stock price of Chipotle?
 
-## Data sources
+### Data sources
 
 We used an avocado price data set from Kaggle (CSV), Yahoo Finance API for Chipotle stock price, and United States Department of Agriculture Foreign Agricultural Service data (CSV)
 
-## Summary
+### Summary
 
 1. We did not see any obvious change to the production of other crops as avocados ramped up.
 
@@ -59,14 +59,14 @@ We used an avocado price data set from Kaggle (CSV), Yahoo Finance API for Chipo
 
 </p>
 
-## ETL Steps
+### ETL Steps
 
 1. FSDA data was in a two way table. Used iloc to change to one way (See Below).
 2. Yahoo finance API gave daily stock close values, but the Kaggle data was weekly (Sunday). The last day of the weeks close for Chipotle was used for price on Sunday.
 3. All data was imported into SQL tables and querried later to make plots.
 4. Various conversions to date format and numeric format after removing comma-like charecter from numbers (used to compute unit prices).
 
-### Before:
+#### Before:
 
 |FIELD1|Partner|FIELD3|HS Code  |Product         |Year     |UOM|Q1(Jan-Mar) Value|Q1(Jan-Mar) Qty|Q2(Apr-Jun) Value|Q2(Apr-Jun) Qty|Q3(Jul-Sep) Value|Q3(Jul-Sep)Qty|Q4(Oct-Dec) Value|Q4(Oct-Dec) Qty|Total Value|Total Qty |Reporter Code|Partner Code|Product Code|
 |------|-------|------|---------|----------------|---------|---|-----------------|---------------|-----------------|---------------|-----------------|--------------|-----------------|---------------|-----------|----------|-------------|------------|------------|
@@ -76,7 +76,7 @@ We used an avocado price data set from Kaggle (CSV), Yahoo Finance API for Chipo
 |1     |Mexico |1     |805503000|LIM,TAH/PR,FR/DR|2018-2018|MT |140,423          |117,758.60     |127,912          |151,146.10     |93,635           |161,657.10    |73,466           |145,703.10     |435,436    |576,265.00|US           |MX          |805503000   |
 |1     |Mexico |1     |805503000|LIM,TAH/PR,FR/DR|2019-2019|MT |113,771          |137,236.80     |119,491          |160,433.30     |119,449          |164,323.60    |100,280          |145,816.10     |452,990    |607,809.90|US           |MX          |805503000   |
 
-### After:
+#### After:
 
 |FIELD1|year  |quarter|value    |qty             |price    |
 |------|------|-------|---------|----------------|---------|
@@ -90,7 +90,7 @@ We used an avocado price data set from Kaggle (CSV), Yahoo Finance API for Chipo
 |7     |2016  |4      |891793   |489631.9        |1.8213539599850417|
 |8     |2017  |1      |1149175  |583105.6        |1.9707836796628262|
 
-## SQL tables
+### SQL tables
 
 - cmg (Chipotle Stock Price)
 - avo_price (Avocado Price Data from Kaggle)
@@ -100,7 +100,7 @@ We used an avocado price data set from Kaggle (CSV), Yahoo Finance API for Chipo
 - mango_fsda (Mango Import Data)
 - lime_fsda (Lime Import Data)
 
-## File Purpose
+### File Purpose
 
 All imports are made to create and update SQL tables
 
