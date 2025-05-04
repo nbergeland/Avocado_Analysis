@@ -1,4 +1,26 @@
 # Avocado_Analysis
+## Overview
+This document provides a comprehensive overview of the Avocado Analysis system, a data processing and visualization framework for agricultural trade data. The system primarily focuses on analyzing import/export patterns for avocados, with additional support for related fruits such as mangoes and limes. It implements an Extract-Transform-Load (ETL) pipeline that processes CSV data from agricultural trade sources, transforms it into a standardized format, stores it in a PostgreSQL database, and generates visualizations to display price and quantity trends.
+
+## System Architecture
+
+System Components and Data Flow
+
+Sources: 
+import_avocado_fsda.ipynb
+1-496
+ 
+mango_df.ipynb
+1-20
+ 
+lime.ipynb
+1-20
+
+## Core ETL Process
+
+The system implements a standardized ETL pattern across all fruit types. The central function fas_csv_to_pd_df() transforms quarterly-formatted CSV data into a structured time series format suitable for analysis and visualization.
+
+## Data Transformation Flow
 
 ## Key Questions
 
