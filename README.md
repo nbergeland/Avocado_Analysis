@@ -21,6 +21,89 @@ lime.ipynb
 The system implements a standardized ETL pattern across all fruit types. The central function fas_csv_to_pd_df() transforms quarterly-formatted CSV data into a structured time series format suitable for analysis and visualization.
 
 ### Data Transformation Flow
+![Screenshot](DTF.png)
+
+## Key Components and Implementation Details
+
+### Core Transformation Function
+The fas_csv_to_pd_df() function is the primary data transformation mechanism that:
+
+1. Accepts a CSV file path as input
+2. Creates a new DataFrame with standardized columns (Year, Quarter, Value, Qty)
+3. Processes quarterly data across multiple years (2015-2019)
+4. Handles comma-separated numeric values
+5. Returns a cleaned DataFrame ready for analysis
+
+Function structure: fas_csv_to_pd_df(file_name)
+Input: CSV file containing quarterly trade data
+Output: Pandas DataFrame with standardized format
+
+The implementation can be found in all three data processing notebooks with slight variations. The core logic:
+- Create empty DataFrame with standardized columns
+- Generate year/quarter pairs for all time periods
+- Extract value and quantity data from specific cells in the source CSV
+- Process and clean numeric values (remove commas)
+- Normalize column names to lowercase
+
+## PostgreSQL Integration
+The system stores processed data in a PostgreSQL database using SQLAlchemy. Each fruit type has its own dedicated table:
+
+Table Name	Description	Primary Key	Data Columns
+avocada_fsda	Avocado trade data	(quarter, year)	year, quarter, value, qty
+mango_price	Mango price data	id	id, year, quarter, date, price
+lime_fsda	Lime trade data with price	(quarter, year)	year, quarter, qty, price
+Database connection pattern used across notebooks:
+
+rds_connection_string = USERNAME+':'+PASSWORD+"@localhost:5432/[database_name]"
+engine = create_engine(f'postgresql://{rds_connection_string}')
+conn = engine.engine.connect()
+
+## Data Schema and Transformation
+### Input CSV Format
+The system processes CSV files with a specific format containing quarterly import/export data:
+
+Partner, HS Code, Product, Year, UOM, 
+Q1(Jan-Mar) Value, Q1(Jan-Mar) Qty, 
+Q2(Apr-Jun) Value, Q2(Apr-Jun) Qty,
+Q3(Jul-Sep) Value, Q3(Jul-Sep) Qty,
+Q4(Oct-Dec) Value, Q4(Oct-Dec) Qty,
+Total Value, Total Qty
+
+### Transformed DataFrame Format
+After processing, data is restructured into a time series format:
+
+year, quarter, value, qty, [price (optional)]
+The price column is calculated as value/qty in some notebooks (e.g., lime.ipynb).
+
+## Repository Structure and Notebook Organization
+### Repository Components
+![Screenshot](RC.png)
+
+## Common ETL Pattern Across Notebooks
+All three notebooks follow a similar pattern:
+
+1. Import necessary libraries (pandas, sqlalchemy, matplotlib)
+2. Read CSV data files from the Resources directory
+3. Transform data using the fas_csv_to_pd_df() function
+4. Convert data types and perform calculations
+5. Connect to PostgreSQL using credentials from sql_login.py
+6. Create or update database tables
+7. Load transformed data to the database
+8. Generate visualizations (primarily in the avocado notebook)
+ 
+This consistent pattern allows for standardized processing across different fruit types while accommodating minor variations specific to each data source.
+
+## Data Sources and Formats
+The system works with CSV data from agricultural trade sources, focusing on imports/exports of avocados, mangoes, and limes. The data provides quarterly values and quantities from 2015-2019, primarily tracking imports from Mexico to the United States.
+Data sets used include an avocado price data set from Kaggle (CSV), Yahoo Finance API for Chipotle stock price, and United States Department of Agriculture Foreign Agricultural Service data (CSV)
+
+Each CSV file contains:
+
+- Product identification (HS Code)
+- Trade partner information
+- Quarterly values in thousands of dollars
+- Quantities in metric tons (MT)
+- Reporter and partner country codes
 
 ### Key Questions
 
@@ -31,10 +114,12 @@ The system implements a standardized ETL pattern across all fruit types. The cen
 
 ### Data sources
 
-We used an avocado price data set from Kaggle (CSV), Yahoo Finance API for Chipotle stock price, and United States Department of Agriculture Foreign Agricultural Service data (CSV)
 
 ### Summary
 
+The Avocado Analysis system provides a complete ETL pipeline for processing agricultural trade data. It employs a standardized approach to transform quarterly CSV data into a time series format, store it in PostgreSQL, and generate visualizations for analysis. The system is modular with similar patterns implemented across different fruit types, primarily focusing on avocados with extensions for mangoes and limes.
+
+### Findings
 1. We did not see any obvious change to the production of other crops as avocados ramped up.
 
 <img src="Images/avo_corn.png" width="60%">
