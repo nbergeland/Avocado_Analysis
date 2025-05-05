@@ -114,6 +114,13 @@ Each CSV file contains:
 
 ### Data sources
 
+- cmg (Chipotle Stock Price)
+- avo_price (Avocado Price Data from Kaggle)
+- avo_qtr_price (Average Quarterly Price based on Kaggle Data)
+- avocada_fsda (Avocado Import Data)
+- corn_fsda (Corn Import Data)
+- mango_fsda (Mango Import Data)
+- lime_fsda (Lime Import Data)
 
 ### Summary
 
