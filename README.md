@@ -133,7 +133,7 @@ The Avocado Analysis system provides a complete ETL pipeline for processing agri
 <img src="Images/avo_mango.png" width="60%">
 <img src="Images/avo_lime.png" width="60%">
 
-2. Yet to be determined import/dometic production relation.
+2. Yet to be determined import/domestic production relation.
 3. There was a dip in avocado prices near the beginning of the year for four of the five years considered.
 4. There was a significant drop to Chipotle stock in one case where avocado prices shot up.
 
